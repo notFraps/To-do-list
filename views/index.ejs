@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1>It is <%= kindof %> </h1>
+        <h3>Todays List</h3>
+    </div>
+    <div class="box">
+
+        <% newlistitem.forEach(item => { %>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name="cbox" value="<%=item._id%>" onchange="this.form.submit()" >
+                    <p> <%= item.name %> </p>
+                </div>
+                <input type="hidden" name="difName" value="<%= kindof %>"></input>
+            </form>            
+        <% }); %>
+    
+                    
+        <form class="item" action="/"  method="post">
+            <input type="text" placeholder="New Item" name="newlist">
+            <button type="submit" name="butt" value="<%= kindof %>">+</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
